@@ -5,7 +5,7 @@
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
-Version:	20040809
+Version:	20040916
 Release:	1%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
