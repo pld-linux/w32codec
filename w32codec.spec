@@ -25,8 +25,8 @@ ExclusiveArch:	%{ix86}
 %{?_with_license_agreement:Obsoletes:	w32codec-qt}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-#%%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/test/SRPMS/
-%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/PLD/SRPMS/SRPMS/
+#%%define		w32codecDIR	ftp://ftp.pld-linux.org/dists/ra/test/SRPMS/
+%define		w32codecDIR	ftp://ftp.pld-linux.org/dists/ra/PLD/SRPMS/SRPMS/
 
 %description
 Libraries required to compress/decompress content of movie files. They
@@ -80,7 +80,9 @@ then
 	TMPDIR=\`rpm --eval "%%{tmpdir}"\`; export TMPDIR
 	SPECDIR=\`rpm --eval "%%{_specdir}"\`; export SPECDIR
 	SRPMDIR=\`rpm --eval "%%{_srcrpmdir}"\`; export SRPMDIR
+	SOURCEDIR=\`rpm --eval "%%{_sourcedir}"\`; export SRPMDIR
 	RPMDIR=\`rpm --eval "%%{_rpmdir}"\`; export RPMDIR
+	mkdir -p \$TMPDIR \$SPECDIR \$SRPMDIR \$RPMDIR \$SRPMDIR \$SOURCEDIR
 	( cd \$SRPMDIR
 	if echo "\$3" | grep '://' >/dev/null
 	then
