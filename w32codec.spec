@@ -6,20 +6,23 @@ Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	1.0
-Release:	4%{?_with_license_agreement:wla}
+Release:	5%{?_with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
-%{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/win32codecs.tar.bz2}
-%{?_with_license_agreement:Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2}
-%{?_with_license_agreement:Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2}
-%{?_with_license_agreement:Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2}
-%{?_with_license_agreement:Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2}
-%{?_with_license_agreement:Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2}
-%{?!_with_license_agreement:Requires:	rpm-build-tools}
-%{?!_with_license_agreement:Requires:	wget}
-%{?_with_license_agreement:Provides:	avi-codecs}
-%{?_with_license_agreement:Obsoletes:	avi-codecs}
-%{?_with_license_agreement:Obsoletes:	w32codec-qt}
+%if 0%{?_with_license_agreement:1}
+Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/win32codecs.tar.bz2
+Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2
+Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2
+Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2
+Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2
+Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2
+Provides:	avi-codecs
+Obsoletes:	avi-codecs
+Obsoletes:	w32codec-qt
+%else
+Requires:	rpm-build-tools
+Requires:	wget
+%endif
 AutoReqProv:	no
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,7 +33,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
 files.
-%if %{?!_with_license_agreement:1}%{?_with_license_agreement:0}
+%if 0%{!?_with_license_agreement:1}
 License issues made us not to include inherent files into this package
 by default. If you want to create full working package please build it
 with the following command:
@@ -42,7 +45,7 @@ w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{re
 Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
 wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
 kompresowanych plików z filmami.
-%if %{?!_with_license_agreement:1}%{?_with_license_agreement:0}
+%if 0%{!?_with_license_agreement:1}
 Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
 plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
 pomoc± polecenia:
@@ -51,24 +54,20 @@ w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{re
 %endif
 
 %prep
-%{?_with_license_agreement:%setup -q -n win32codecs}
-
-install_codecs() {
-	bzcat %{SOURCE1} | tar xf -
-	bzcat %{SOURCE2} | tar xf -
-	bzcat %{SOURCE3} | tar xf -
-	bzcat %{SOURCE4} | tar xf -
-	bzcat %{SOURCE5} | tar xf -
-	for f in */*; do mv $f .; done
-}
-
-%{?_with_license_agreement:install_codecs}
+%if 0%{?_with_license_agreement:1}
+%setup -q -n win32codecs
+bzcat %{SOURCE1} | tar xf -
+bzcat %{SOURCE2} | tar xf -
+bzcat %{SOURCE3} | tar xf -
+bzcat %{SOURCE4} | tar xf -
+bzcat %{SOURCE5} | tar xf -
+for f in */*; do mv $f .; done
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}/codecs
 
-%if %{?_with_license_agreement:0}%{?!_with_license_agreement:1}
+%if 0%{!?_with_license_agreement:1}
 install -d $RPM_BUILD_ROOT%{_bindir}
 cat <<EOF >$RPM_BUILD_ROOT%{_bindir}/w32codec.install
 #!/bin/sh
@@ -77,7 +76,7 @@ then
 	TMPDIR=\`rpm --eval "%%{tmpdir}"\`; export TMPDIR
 	SPECDIR=\`rpm --eval "%%{_specdir}"\`; export SPECDIR
 	SRPMDIR=\`rpm --eval "%%{_srcrpmdir}"\`; export SRPMDIR
-	SOURCEDIR=\`rpm --eval "%%{_sourcedir}"\`; export SRPMDIR
+	SOURCEDIR=\`rpm --eval "%%{_sourcedir}"\`; export SOURCEDIR
 	RPMDIR=\`rpm --eval "%%{_rpmdir}"\`; export RPMDIR
 	mkdir -p \$TMPDIR \$SPECDIR \$SRPMDIR \$RPMDIR \$SRPMDIR \$SOURCEDIR
 	( cd \$SRPMDIR
@@ -106,12 +105,13 @@ package please build it with the following command:
 fi
 EOF
 %else
+install -d $RPM_BUILD_ROOT%{_libdir}/codecs
 install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*_linuxELFx86c6.xa
 %endif
 
+%if 0%{!?_with_license_agreement:1}
 %pre
-%if %{?!_with_license_agreement:1}%{?_with_license_agreement:0}
 echo "
 License issues made us not to include inherent files into
 this package by default. If you want to create full working
@@ -127,4 +127,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %{?_with_license_agreement:%{_libdir}/codecs}
-%{?!_with_license_agreement:%attr(755,root,root) %{_bindir}/w32codec.install}
+%{!?_with_license_agreement:%attr(755,root,root) %{_bindir}/w32codec.install}
