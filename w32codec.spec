@@ -18,7 +18,7 @@ ExclusiveArch:	%{ix86}
 %{?_with_license_agreement:Obsoletes:	avi-codecs}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/TEST/SRPMS/
+%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/test/SRPMS/
 #%%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/PLD/SRPMS/SRPMS/
 
 %description
@@ -56,10 +56,10 @@ cat <<EOF >$RPM_BUILD_ROOT%{_bindir}/w32codec.install
 #!/bin/sh
 if [ "\$1" = "--with" -a "\$2" = "license_agreement" ]
 then
-	TMPDIR=\`rpm --eval "%{tmpdir}"\`; export TMPDIR
-	SPECDIR=\`rpm --eval "%{_specdir}"\`; export SPECDIR
-	SRPMDIR=\`rpm --eval "%{_srcrpmdir}"\`; export SRPMDIR
-	RPMDIR=\`rpm --eval "%{_rpmdir}"\`; export RPMDIR
+	TMPDIR=\`rpm --eval "%%{tmpdir}"\`; export TMPDIR
+	SPECDIR=\`rpm --eval "%%{_specdir}"\`; export SPECDIR
+	SRPMDIR=\`rpm --eval "%%{_srcrpmdir}"\`; export SRPMDIR
+	RPMDIR=\`rpm --eval "%%{_rpmdir}"\`; export RPMDIR
 	( cd \$SRPMDIR
 	if echo "\$3" | grep '://' >/dev/null
 	then
