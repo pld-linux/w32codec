@@ -18,6 +18,9 @@ ExclusiveArch:	%{ix86}
 %{?_with_license_agreement:Obsoletes:	avi-codecs}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/TEST/SRPMS/
+#%%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/PLD/SRPMS/SRPMS/
+
 %description
 Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
@@ -27,7 +30,7 @@ files.
 %{?!_with_license_agreement:this package by default. If you want to create full working}
 %{?!_with_license_agreement:package please build it with the following command:}
 %{?!_with_license_agreement:}
-%{?!_with_license_agreement:w32codec.install --with license_agreement ftp://ftp.pld.org.pl/dists/ra/PLD/SRPMS/SRPMS/%{name}-%{version}-%{release}.src.rpm}
+%{?!_with_license_agreement:w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm}
 
 %description -l pl
 Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
@@ -38,7 +41,7 @@ kompresowanych plików z filmami.
 %{?!_with_license_agreement:pakietu istotnych plików. Je¶li chcesz stworzyæ w pe³ni}
 %{?!_with_license_agreement:funkcjonalny pakiet zbuduj go za pomoc± polecenia:}
 %{?!_with_license_agreement:}
-%{?!_with_license_agreement:w32codec.install --with license_agreement ftp://ftp.pld.org.pl/dists/ra/PLD/SRPMS/SRPMS/%{name}-%{version}-%{release}.src.rpm}
+%{?!_with_license_agreement:w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm}
 
 %prep
 %{?_with_license_agreement:%setup -q -n %{name}-0.90}
@@ -78,7 +81,7 @@ License issues made us not to include inherent files into
 this package by default. If you want to create full working
 package please build it with the following command:
 
-\$0 --with license_agreement ftp://ftp.pld.org.pl/dists/ra/PLD/SRPMS/SRPMS/%{name}-%{version}-%{release}.src.rpm
+\$0 --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm
 "
 fi
 EOF
@@ -92,7 +95,7 @@ install * $RPM_BUILD_ROOT%{_libdir}/win32
 %{?!_with_license_agreement:this package by default. If you want to create full working}
 %{?!_with_license_agreement:package please build it with the following command:}
 %{?!_with_license_agreement:}
-%{?!_with_license_agreement:w32codec.install --with license_agreement ftp://ftp.pld.org.pl/dists/ra/PLD/SRPMS/SRPMS/%{name}-%{version}-%{release}.src.rpm}
+%{?!_with_license_agreement:w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm}
 %{?!_with_license_agreement:"}
 
 %clean
