@@ -6,7 +6,7 @@ Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	20040706
-Release:	1%{?with_license_agreement:wla}
+Release:	2%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %if %{with license_agreement}
@@ -88,7 +88,7 @@ then
 	( cd \$SRPMDIR
 	if echo "\$3" | grep '://' >/dev/null
 	then
-		wget -t0 "\$3"
+		wget --passive-ftp -t0 "\$3"
 	else
 		cp -f "\$3" .
 	fi
