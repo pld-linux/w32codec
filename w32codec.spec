@@ -16,6 +16,7 @@ Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2
 Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2
 Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2
 Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2
+Source6:	http://www.ezgoal.com/dll_files/tsd32.zip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
@@ -61,6 +62,8 @@ bzcat %{SOURCE2} | tar xf -
 bzcat %{SOURCE3} | tar xf -
 bzcat %{SOURCE4} | tar xf -
 bzcat %{SOURCE5} | tar xf -
+unzip %{SOURCE6}
+mv TSD32.DLL tsd32.dll
 for f in */*; do mv $f .; done
 %endif
 
