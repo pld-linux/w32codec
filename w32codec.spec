@@ -1,15 +1,15 @@
 #
 # Conditional build:
-# _with_license_agreement	- generates package
+%bcond_with	license_agreement	# generates package
 #
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	1.0
-Release:	5%{?_with_license_agreement:wla}
+Release:	5%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
-%if 0%{?_with_license_agreement:1}
+%if %{with license_agreement}
 Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/win32codecs.tar.bz2
 Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2
 Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2
@@ -33,7 +33,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
 files.
-%if 0%{!?_with_license_agreement:1}
+%if ! %{with license_agreement}
 License issues made us not to include inherent files into this package
 by default. If you want to create full working package please build it
 with the following command:
@@ -45,7 +45,7 @@ w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{re
 Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
 wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
 kompresowanych plików z filmami.
-%if 0%{!?_with_license_agreement:1}
+%if ! %{with license_agreement}
 Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
 plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
 pomoc± polecenia:
@@ -54,7 +54,7 @@ w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{re
 %endif
 
 %prep
-%if 0%{?_with_license_agreement:1}
+%if %{with license_agreement}
 %setup -q -n win32codecs
 bzcat %{SOURCE1} | tar xf -
 bzcat %{SOURCE2} | tar xf -
@@ -67,7 +67,7 @@ for f in */*; do mv $f .; done
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%if 0%{!?_with_license_agreement:1}
+%if ! %{with license_agreement}
 install -d $RPM_BUILD_ROOT%{_bindir}
 cat <<EOF >$RPM_BUILD_ROOT%{_bindir}/w32codec.install
 #!/bin/sh
@@ -110,7 +110,7 @@ install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*_linuxELFx86c6.xa
 %endif
 
-%if 0%{!?_with_license_agreement:1}
+%if ! %{with license_agreement}
 %pre
 echo "
 License issues made us not to include inherent files into
@@ -126,5 +126,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{?_with_license_agreement:%{_libdir}/codecs}
-%{!?_with_license_agreement:%attr(755,root,root) %{_bindir}/w32codec.install}
+%{?with_license_agreement:%{_libdir}/codecs}
+%{!?with_license_agreement:%attr(755,root,root) %{_bindir}/w32codec.install}
