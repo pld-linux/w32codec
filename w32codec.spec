@@ -83,7 +83,7 @@ then
 	SPECDIR=\`rpm --eval "%%{_specdir}"\`; export SPECDIR
 	SRPMDIR=\`rpm --eval "%%{_srcrpmdir}"\`; export SRPMDIR
 	SOURCEDIR=\`rpm --eval "%%{_sourcedir}"\`; export SOURCEDIR
-        BUILDDIR=\`rpm --eval "%%{_builddir}"\`; export BUILDDIR
+	BUILDDIR=\`rpm --eval "%%{_builddir}"\`; export BUILDDIR
 	RPMDIR=\`rpm --eval "%%{_rpmdir}"\`; export RPMDIR
 	mkdir -p \$TMPDIR \$SPECDIR \$SRPMDIR \$RPMDIR \$SRPMDIR \$SOURCEDIR \$BUILDDIR
 	( cd \$SRPMDIR
