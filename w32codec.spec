@@ -18,7 +18,7 @@ License:	Mostly freeware, some free for non-commercial use.
 BuildRequires:	unzip
 Autoreqprov:	false
 Provides:	avi-codecs
-ExclusiveArch:	%{x86}
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	avi-codecs
 
