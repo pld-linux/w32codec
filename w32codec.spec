@@ -5,11 +5,11 @@
 Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
-Version:	0.90pre7
-Release:	5%{?_with_license_agreement:wla}
+Version:	1.0
+Release:	1%{?_with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
-%{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/%{name}-%{version}.tar.bz2}
+%{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/win32codecs.tar.bz2}
 %{?_with_license_agreement:Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2}
 %{?_with_license_agreement:Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2}
 %{?_with_license_agreement:Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2}
@@ -54,7 +54,7 @@ w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{re
 %endif
 
 %prep
-%{?_with_license_agreement:%setup -q -n %{name}-0.90}
+%{?_with_license_agreement:%setup -q -n win32codecs}
 
 install_codecs() {
 	bzcat %{SOURCE1} | tar xf -
