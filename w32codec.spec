@@ -36,7 +36,7 @@ files.
 %description -l pl
 Biblioteki niezbêdne do kompresji/dekompresji filmów.
 S± one wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do
-tworzenia skompresowanych plików z filamami.
+tworzenia skompresowanych plików z filmami.
 
 %{?!_with_license_agreement:Kwestie licencji zmusi³y nas do niedo³±czania do tego}
 %{?!_with_license_agreement:pakietu istotnych plików. Je¶li chcesz stworzyæ w pe³ni}
