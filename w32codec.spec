@@ -7,7 +7,7 @@ Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	0.18
-Release:	1
+Release:	2
 Group:		Libraries
 Group(de):	Libraries
 Group(es):	Bibliotecas
@@ -18,8 +18,9 @@ License:	Mostly freeware, some free for non-commercial use.
 BuildRequires:	unzip
 Autoreqprov:	false
 Provides:	avi-codecs
-Obsoletes:	avi-codecs
+ExclusiveArch:	%{x86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	avi-codecs
 
 %description
 Libraries required to compress/decompress content of movie files. They
