@@ -9,7 +9,7 @@ Version:	0.60
 Release:	2
 Group:		Libraries
 License:	Mostly freeware, some free for non-commercial use.
-%{?_with_license_agreement:Source0:	http://mplayerhq.banki.hu/MPlayer/releases/%{name}-%{version}.tar.bz2}
+%{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/%{name}-%{version}.tar.bz2}
 Autoreqprov:	false
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
