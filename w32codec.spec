@@ -8,7 +8,7 @@
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %define		base_name	w32codec
-%define		_version	20050115
+%define		_version	20050216
 %if %{with license_agreement}
 Name:		%{base_name}
 # don't change the following line
