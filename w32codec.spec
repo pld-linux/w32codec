@@ -2,11 +2,11 @@
 # Conditional build:
 # _with_license_agreement	- generates package
 #
-Summary:	Windows compression/decompression libraries used by movie players
-Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
+Summary:	Binary compression/decompression libraries used by movie players
+Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	1.0
-Release:	1%{?_with_license_agreement:wla}
+Release:	2%{?_with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/win32codecs.tar.bz2}
@@ -69,7 +69,7 @@ install_codecs() {
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}/win32
+install -d $RPM_BUILD_ROOT%{_libdir}/codecs
 
 %if %{?_with_license_agreement:0}%{?!_with_license_agreement:1}
 install -d $RPM_BUILD_ROOT%{_bindir}
@@ -107,8 +107,8 @@ package please build it with the following command:
 fi
 EOF
 %else
-install *.* $RPM_BUILD_ROOT%{_libdir}/win32
-rm -f $RPM_BUILD_ROOT%{_libdir}/win32/*_linuxELFx86c6.xa
+install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
+rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*_linuxELFx86c6.xa
 %endif
 
 %pre
@@ -127,5 +127,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{?_with_license_agreement:%{_libdir}/win32}
+%{?_with_license_agreement:%{_libdir}/codecs}
 %{?!_with_license_agreement:%attr(755,root,root) %{_bindir}/w32codec.install}
