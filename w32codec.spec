@@ -15,7 +15,6 @@ License:	Free for non-commercial use
 %{?_with_license_agreement:Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2}
 %{?_with_license_agreement:Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2}
 %{?_with_license_agreement:Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2}
-##%{?_with_license_agreement:Source6:     http://www1.mplayerhq.hu/MPlayer/releases/codecs/vanguard.tar.bz2}
 Autoreqprov:	false
 ExclusiveArch:	%{ix86}
 %{?!_with_license_agreement:Requires:	rpm-build-tools}
@@ -61,7 +60,6 @@ install_codecs() {
 	bzcat %{SOURCE3} | tar xf -
 	bzcat %{SOURCE4} | tar xf -
 	bzcat %{SOURCE5} | tar xf -
-#	bzcat %{SOURCE6} | tar xf -
 	for f in */*; do mv $f .; done
 }
 
