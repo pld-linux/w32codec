@@ -20,6 +20,7 @@ Source6:	http://www.ezgoal.com/dll_files/tsd32.zip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
+BuildRequires:	unzip
 %else
 Requires:	cpio
 Requires:	unzip
