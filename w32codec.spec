@@ -16,7 +16,7 @@ Copyright:	Mostly freeware, some free for non-commercial use.
 %{?_with_license_agreement:Source0:	http://mplayerhq.banki.hu/MPlayer/releases/%{name}-%{version}.zip}
 BuildRequires:	unzip
 Autoreqprov:	false
-Conflicts:	avi-codecs
+Provides:	avi-codecs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
