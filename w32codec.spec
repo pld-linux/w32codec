@@ -11,12 +11,14 @@ Release:	1
 Group:		Libraries
 Group(de):	Libraries
 Group(es):	Bibliotecas
+Group(fr):	Librairies
 Group(pl):	Biblioteki
-Copyright:	Mostly freeware, some free for non-commercial use.
+License:	Mostly freeware, some free for non-commercial use.
 %{?_with_license_agreement:Source0:	http://mplayerhq.banki.hu/MPlayer/releases/%{name}-%{version}.zip}
 BuildRequires:	unzip
 Autoreqprov:	false
 Provides:	avi-codecs
+Obsoletes:	avi-codecs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
