@@ -1,7 +1,7 @@
 #
 # Conditional build:
 # _with_license_agreement	- generates package
-#
+
 Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
@@ -35,7 +35,7 @@ wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do
 tworzenia kompresowanych plików z filmami.
 
 %prep
-%{?!_with_license_agreement:exit 1}
+%{!?_with_license_agreement:exit 1}
 
 %install
 rm -rf $RPM_BUILD_ROOT
