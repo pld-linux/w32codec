@@ -6,7 +6,7 @@ Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	1.0
-Release:	2%{?_with_license_agreement:wla}
+Release:	3%{?_with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/win32codecs.tar.bz2}
