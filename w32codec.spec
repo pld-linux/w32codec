@@ -15,13 +15,13 @@ License:	Free for non-commercial use
 %{?_with_license_agreement:Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2}
 %{?_with_license_agreement:Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2}
 %{?_with_license_agreement:Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2}
-Autoreqprov:	false
-ExclusiveArch:	%{ix86}
 %{?!_with_license_agreement:Requires:	rpm-build-tools}
 %{?!_with_license_agreement:Requires:	wget}
 %{?_with_license_agreement:Provides:	avi-codecs}
 %{?_with_license_agreement:Obsoletes:	avi-codecs}
 %{?_with_license_agreement:Obsoletes:	w32codec-qt}
+AutoReqProv:	no
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 #%%define		w32codecDIR	ftp://ftp.pld-linux.org/dists/ra/test/SRPMS/
