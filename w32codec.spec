@@ -30,7 +30,7 @@ AutoReqProv:	no
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		w32codecDIR	ftp://ftp.pld-linux.org/dists/ac/PLD/SRPMS/SRPMS/
+%define		w32codecDIR	ftp://ftp.pld-linux.org/dists/ac/PLD/SRPMS/SRPMS
 
 %description
 Libraries required to compress/decompress content of movie files. They
