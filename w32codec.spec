@@ -19,6 +19,7 @@ BuildRequires:	unzip
 Autoreqprov:	false
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Provides:	avi-codecs
 Obsoletes:	avi-codecs
 
 %description
