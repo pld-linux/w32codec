@@ -15,12 +15,11 @@ License:	Free for non-commercial use
 %{?_with_license_agreement:Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2}
 %{?_with_license_agreement:Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2}
 %{?_with_license_agreement:Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2}
-%{?_with_license_agreement:Source6:     http://www1.mplayerhq.hu/MPlayer/releases/codecs/dmocodecs.tar.bz2}
-%{?_with_license_agreement:Source7:     http://www1.mplayerhq.hu/MPlayer/releases/codecs/mjpeg2kdlls.tar.bz2}
+%{?_with_license_agreement:Source6:     http://www1.mplayerhq.hu/MPlayer/releases/codecs/vanguard.tar.bz2}
 Autoreqprov:	false
 ExclusiveArch:	%{ix86}
-%{?!_with_license_agreement:Requires:	wget}
 %{?!_with_license_agreement:Requires:	rpm-build-tools}
+%{?!_with_license_agreement:Requires:	wget}
 %{?_with_license_agreement:Provides:	avi-codecs}
 %{?_with_license_agreement:Obsoletes:	avi-codecs}
 %{?_with_license_agreement:Obsoletes:	w32codec-qt}
@@ -63,7 +62,6 @@ install_codecs() {
 	bzcat %{SOURCE4} | tar xf -
 	bzcat %{SOURCE5} | tar xf -
 	bzcat %{SOURCE6} | tar xf -
-	bzcat %{SOURCE7} | tar xf -
 	for f in */*; do mv $f .; done
 }
 
@@ -110,6 +108,7 @@ fi
 EOF
 %else
 install *.* $RPM_BUILD_ROOT%{_libdir}/win32
+rm -f $RPM_BUILD_ROOT%{_libdir}/win32/*_linuxELFx86c6.xa
 %endif
 
 %pre
