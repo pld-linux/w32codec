@@ -1,7 +1,7 @@
 #
 # Conditional build:
 # _with_license_agreement	- generates package
-
+#
 Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
@@ -25,23 +25,25 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
 files.
+%if %{?!_with_license_agreement:1}%{?_with_license_agreement:0}
+License issues made us not to include inherent files into this package
+by default. If you want to create full working package please build it
+with the following command:
 
-%{?!_with_license_agreement:License issues made us not to include inherent files into}
-%{?!_with_license_agreement:this package by default. If you want to create full working}
-%{?!_with_license_agreement:package please build it with the following command:}
-%{?!_with_license_agreement:}
-%{?!_with_license_agreement:w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm}
+w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm
+%endif
 
 %description -l pl
 Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
 wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
 kompresowanych plików z filmami.
+%if %{?!_with_license_agreement:1}%{?_with_license_agreement:0}
+Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
+plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
+pomoc± polecenia:
 
-%{?!_with_license_agreement:Kwestie licencji zmusi³y nas do niedo³±czania do tego}
-%{?!_with_license_agreement:pakietu istotnych plików. Je¶li chcesz stworzyæ w pe³ni}
-%{?!_with_license_agreement:funkcjonalny pakiet zbuduj go za pomoc± polecenia:}
-%{?!_with_license_agreement:}
-%{?!_with_license_agreement:w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm}
+w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm
+%endif
 
 %prep
 %{?_with_license_agreement:%setup -q -n %{name}-0.90}
@@ -90,13 +92,15 @@ install * $RPM_BUILD_ROOT%{_libdir}/win32
 %endif
 
 %pre
-%{?!_with_license_agreement:echo "}
-%{?!_with_license_agreement:License issues made us not to include inherent files into}
-%{?!_with_license_agreement:this package by default. If you want to create full working}
-%{?!_with_license_agreement:package please build it with the following command:}
-%{?!_with_license_agreement:}
-%{?!_with_license_agreement:w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm}
-%{?!_with_license_agreement:"}
+%if %{?!_with_license_agreement:1}%{?_with_license_agreement:0}
+echo "
+License issues made us not to include inherent files into
+this package by default. If you want to create full working
+package please build it with the following command:
+
+w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm
+"
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
