@@ -23,6 +23,7 @@ ExclusiveArch:	%{ix86}
 %{?!_with_licence_agreement:Requires:	rpm-build-tools}
 %{?_with_licence_agreement:Provides:	avi-codecs}
 %{?_with_licence_agreement:Obsoletes:	avi-codecs}
+%{?_with_licence_agreement:Obsoletes:	w32codec-qt}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 #%%define		w32codecDIR	ftp://ftp.pld.org.pl/dists/ra/test/SRPMS/
