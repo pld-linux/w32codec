@@ -6,10 +6,15 @@ Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	0.90pre7
-Release:	3%{?_with_license_agreement:wla}
+Release:	4%{?_with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/%{name}-%{version}.tar.bz2}
+%{?_with_license_agreement:Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2}
+%{?_with_license_agreement:Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2}
+%{?_with_license_agreement:Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2}
+%{?_with_license_agreement:Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2}
+%{?_with_license_agreement:Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2}
 Autoreqprov:	false
 ExclusiveArch:	%{ix86}
 %{?!_with_license_agreement:Requires:	wget}
@@ -47,6 +52,18 @@ w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{re
 
 %prep
 %{?_with_license_agreement:%setup -q -n %{name}-0.90}
+
+install_codecs() {
+	bzcat %{SOURCE1} | tar xf -
+	bzcat %{SOURCE2} | tar xf -
+	bzcat %{SOURCE3} | tar xf -
+	bzcat %{SOURCE4} | tar xf -
+	bzcat %{SOURCE5} | tar xf -
+
+	for f in */*; do mv $f .; done
+}
+
+%{?_with_license_agreement:install_codecs}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -88,7 +105,7 @@ package please build it with the following command:
 fi
 EOF
 %else
-install * $RPM_BUILD_ROOT%{_libdir}/win32
+install *.* $RPM_BUILD_ROOT%{_libdir}/win32
 %endif
 
 %pre
