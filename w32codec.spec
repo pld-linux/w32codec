@@ -21,9 +21,10 @@ Provides:	avi-codecs
 Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
 %else
+Requires:	cpio
+Requires:	unzip
 Requires:	rpm-build-tools
 Requires:	wget
-Requires:	cpio
 %endif
 AutoReqProv:	no
 ExclusiveArch:	%{ix86}
