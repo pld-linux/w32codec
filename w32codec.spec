@@ -6,14 +6,16 @@ Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	0.60
-Release:	3
+Release:	4
 Group:		Libraries
 License:	Mostly freeware, some free for non-commercial use.
-%{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/%{name}-%{version}.tar.bz2}
+%if %{?_with_license_agreement}
+Source0:	http://www.mplayerhq.hu/MPlayer/releases/%{name}-%{version}.tar.bz2
+%endif
 Autoreqprov:	false
 ExclusiveArch:	%{ix86}
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides:	avi-codecs
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	avi-codecs
 
 %description
@@ -27,14 +29,13 @@ wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
 kompresowanych plików z filmami.
 
 %prep
-%{!?_with_license_agreement:exit 1}
-%setup -q
+%{?_with_license_agreement:%setup -q}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/win32
 
-install * $RPM_BUILD_ROOT%{_libdir}/win32
+%{?_with_license_agreement:install * $RPM_BUILD_ROOT%{_libdir}/win32}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
