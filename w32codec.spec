@@ -5,17 +5,17 @@
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
-Version:	1.0
+Version:	20040626
 Release:	5%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %if %{with license_agreement}
-Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/win32codecs.tar.bz2
-Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2
-Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2
-Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2
-Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2
-Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2
+Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/all-%{version}.tar.bz2
+#Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2
+#Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2
+#Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2
+#Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2
+#Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2
 Source6:	http://www.ezgoal.com/dll_files/tsd32.zip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
@@ -57,15 +57,15 @@ w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{re
 
 %prep
 %if %{with license_agreement}
-%setup -q -n win32codecs
-bzcat %{SOURCE1} | tar xf -
-bzcat %{SOURCE2} | tar xf -
-bzcat %{SOURCE3} | tar xf -
-bzcat %{SOURCE4} | tar xf -
-bzcat %{SOURCE5} | tar xf -
+%setup -q -n all-%{version}
+#bzcat %{SOURCE1} | tar xf -
+#bzcat %{SOURCE2} | tar xf -
+#bzcat %{SOURCE3} | tar xf -
+#bzcat %{SOURCE4} | tar xf -
+#bzcat %{SOURCE5} | tar xf -
 unzip %{SOURCE6}
 mv TSD32.DLL tsd32.dll
-for f in */*; do mv $f .; done
+#for f in */*; do mv $f .; done
 %endif
 
 %install
