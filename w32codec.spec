@@ -23,6 +23,7 @@ Obsoletes:	w32codec-qt
 %else
 Requires:	rpm-build-tools
 Requires:	wget
+Requires:	cpio
 %endif
 AutoReqProv:	no
 ExclusiveArch:	%{ix86}
@@ -80,8 +81,9 @@ then
 	SPECDIR=\`rpm --eval "%%{_specdir}"\`; export SPECDIR
 	SRPMDIR=\`rpm --eval "%%{_srcrpmdir}"\`; export SRPMDIR
 	SOURCEDIR=\`rpm --eval "%%{_sourcedir}"\`; export SOURCEDIR
+        BUILDDIR=\`rpm --eval "%%{_builddir}"\`; export BUILDDIR
 	RPMDIR=\`rpm --eval "%%{_rpmdir}"\`; export RPMDIR
-	mkdir -p \$TMPDIR \$SPECDIR \$SRPMDIR \$RPMDIR \$SRPMDIR \$SOURCEDIR
+	mkdir -p \$TMPDIR \$SPECDIR \$SRPMDIR \$RPMDIR \$SRPMDIR \$SOURCEDIR \$BUILDDIR
 	( cd \$SRPMDIR
 	if echo "\$3" | grep '://' >/dev/null
 	then
