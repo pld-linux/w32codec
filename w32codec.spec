@@ -3,18 +3,21 @@
 %bcond_with	license_agreement	# generates package
 #
 %define		source_url	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/
+# don't remove this macro
 %define		get_version	%(cd %{tmpdir};rm -f index.html;wget --passive-ftp %{source_url}>/dev/null 2>&1;grep '>all-.*\.tar\.bz2</a>' index.html|sed -e 's:\.tar\.bz2</a>.*::' -e 's:.*>all-::'|sort|tail -n1;rm -f index.html)
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %define		base_name	w32codec
+%define		_version	20041107
 %if %{with license_agreement}
 Name:		%{base_name}
-Version:	%{get_version}
+# don't change the following line
+Version:	%{_version}
 %else
 Name:		%{base_name}-installer
-Version:	20041107
+Version:	%{_version}
 %endif
-Release:	2%{?with_license_agreement:wla}
+Release:	3%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %if %{with license_agreement}
@@ -139,7 +142,7 @@ package please build it with the following command:
 fi
 EOF
 
-install %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
+sed '0,/^Version:.*%%{_version}/s/{_version}/{get_version}/' < %{_specdir}/%{base_name}.spec > $RPM_BUILD_ROOT%{_datadir}/%{base_name}/%{base_name}.spec
 
 %else
 install -d $RPM_BUILD_ROOT%{_libdir}/codecs
