@@ -6,7 +6,7 @@ Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
 Version:	0.90pre7
-Release:	1
+Release:	2
 Group:		Libraries
 License:	Free for non-commercial use
 %{?_with_license_agreement:Source0:	http://www.mplayerhq.hu/MPlayer/releases/%{name}-%{version}.tar.bz2}
@@ -61,4 +61,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_libdir}/win32
+%dir %{_libdir}/win32
+%{_libdir}/win32/*
