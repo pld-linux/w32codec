@@ -34,7 +34,7 @@ files.
 %{?!_with_license_agreement:this package by default. If you want to create full working}
 %{?!_with_license_agreement:package please build it with the following command:}
 %{?!_with_license_agreement:}
-%{?!_with_license_agreement:rpm --rebuild --with license_agreement ftp://ftp.pld.org.pl/PLD-1.0/SRPMS/SRPMS/%{name}-%{version}-%{release}.nosrc.rpm}
+%{?!_with_license_agreement:rpm --rebuild --with license_agreement ftp://ftp.pld.org.pl/PLD-1.0/SRPMS/SRPMS/%{name}-%{version}-%{release}.src.rpm}
 
 %description -l pl
 Biblioteki niezbêdne do kompresji/dekompresji filmów.
@@ -45,7 +45,7 @@ tworzenia kompresowanych plików z filmami.
 %{?!_with_license_agreement:pakietu istotnych plików. Je¶li chcesz stworzyæ w pe³ni}
 %{?!_with_license_agreement:funkcjonalny pakiet zbuduj go za pomoc± komendy:}
 %{?!_with_license_agreement:}
-%{?!_with_license_agreement:rpm --rebuild --with license_agreement ftp://ftp.pld.org.pl/PLD-1.0/SRPMS/SRPMS/%{name}-%{version}-%{release}.nosrc.rpm}
+%{?!_with_license_agreement:rpm --rebuild --with license_agreement ftp://ftp.pld.org.pl/PLD-1.0/SRPMS/SRPMS/%{name}-%{version}-%{release}.src.rpm}
 
 %prep
 
@@ -62,7 +62,7 @@ install -d $RPM_BUILD_ROOT%{_libdir}/win32
 %{?!_with_license_agreement:this package by default. If you want to create full working}
 %{?!_with_license_agreement:package please build it with the following command:}
 %{?!_with_license_agreement:}
-%{?!_with_license_agreement:rpm --rebuild --with license_agreement ftp://ftp.pld.org.pl/PLD-1.0/SRPMS/SRPMS/%{name}-%{version}-%{release}.nosrc.rpm}
+%{?!_with_license_agreement:rpm --rebuild --with license_agreement ftp://ftp.pld.org.pl/PLD-1.0/SRPMS/SRPMS/%{name}-%{version}-%{release}.src.rpm}
 %{?!_with_license_agreement:"}
 
 %clean
