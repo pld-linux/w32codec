@@ -6,8 +6,8 @@
 Summary:	Windows compression/decompression libraries used by movie players
 Summary(pl):	Windziane biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 Name:		w32codec
-Version:	0.18
-Release:	2
+Version:	0.50
+Release:	1
 Group:		Libraries
 Group(de):	Libraries
 Group(es):	Bibliotecas
