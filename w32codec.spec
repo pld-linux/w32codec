@@ -10,12 +10,12 @@ Release:	2%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %if %{with license_agreement}
-Source0:	http://www.mplayerhq.hu/MPlayer/releases/codecs/all-%{version}.tar.bz2
-#Source1:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2
-#Source2:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2
-#Source3:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2
-#Source4:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2
-#Source5:	http://www1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2
+Source0:	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/all-%{version}.tar.bz2
+#Source1:	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/qt6dlls.tar.bz2
+#Source2:	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/qtextras.tar.bz2
+#Source3:	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/rp8codecs.tar.bz2
+#Source4:	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/rp9codecs.tar.bz2
+#Source5:	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/xanimdlls.tar.bz2
 Source6:	http://www.ezgoal.com/dll_files/tsd32.zip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
