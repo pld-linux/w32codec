@@ -49,7 +49,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
 files.
-%if ! %{with license_agreement}
+%if %{without license_agreement}
 License issues made us not to include inherent files into this package
 by default. If you want to create full working package please build it
 with the following command:
@@ -61,7 +61,7 @@ with the following command:
 Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
 wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
 kompresowanych plików z filmami.
-%if ! %{with license_agreement}
+%if %{without license_agreement}
 Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
 plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
 pomoc± polecenia:
@@ -85,7 +85,7 @@ mv TSD32.DLL tsd32.dll
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%if ! %{with license_agreement}
+%if %{without license_agreement}
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{base_name}}
 
 cat <<EOF >$RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
@@ -150,7 +150,7 @@ install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*_linuxELFx86c6.xa
 %endif
 
-%if ! %{with license_agreement}
+%if %{without license_agreement}
 %pre
 echo "
 License issues made us not to include inherent files into
