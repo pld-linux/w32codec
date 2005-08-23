@@ -1,0 +1,2 @@
+- release 4: reverse %{?with_license_agreement} macro - now by default will
+  be builded empty package.
