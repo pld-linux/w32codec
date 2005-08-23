@@ -1,0 +1,6 @@
+- Source[67] (dmo and mjpeg2k) allready included in Source0,
+- new Source6 (vanguard),
+- removed duplicated xanim files,
+- NOTE:
+  - not all of there files are win32!
+  - there are overlapping files in rp8 and rp9.
