@@ -1,7 +1,8 @@
 # Conditional build:
 %bcond_with	license_agreement	# generates package
 #
-%define		source_url	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/
+#%define		source_url	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/
+%define		source_url	ftp://ftp2.mplayerhq.hu/MPlayer/releases/codecs/
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %define		base_name	w32codec
