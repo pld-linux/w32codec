@@ -15,7 +15,7 @@ Name:		%{base_name}
 Name:		%{base_name}-installer
 %endif
 Version:	20050412
-Release:	1.3%{?with_license_agreement:wla}
+Release:	2%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %if %{with license_agreement}
