@@ -30,8 +30,6 @@ BuildRequires:	unzip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
-NoSource:	0
-NoSource:	6
 %else
 Source0:	license-installer.sh
 Requires:	cpio
