@@ -4,7 +4,7 @@
 #
 %define		source_url	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/
 # don't remove this macro
-%define		get_version	%(cd %{tmpdir};rm -f index.html;wget --passive-ftp %{source_url}>/dev/null 2>&1;grep '>all-.*\.tar\.bz2</a>' index.html|sed -e 's:\.tar\.bz2</a>.*::' -e 's:.*>all-::'|sort|tail -n1;rm -f index.html)
+%define		get_version	%(cd %{tmpdir};rm -f index.html;wget --passive-ftp %{source_url}>/dev/null 2>&1;grep '>all-[0-9].*\.tar\.bz2</a>' index.html|sed -e 's:\.tar\.bz2</a>.*::' -e 's:.*>all-::'|sort|tail -n1;rm -f index.html)
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %define		base_name	w32codec
