@@ -1,10 +1,6 @@
 # Conditional build:
 %bcond_with	license_agreement	# generates package
-#
-#%define		source_url	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/
-#%define		source_url	ftp://ftp2.mplayerhq.hu/MPlayer/releases/codecs/
-#%define		source_url	http://www1.mplayerhq.hu/MPlayer/releases/codecs/
-%define                source_url      http://www2.mplayerhq.hu/MPlayer/releases/codecs/
+%define		source_url      http://www2.mplayerhq.hu/MPlayer/releases/codecs/
 
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
@@ -15,7 +11,8 @@ Name:		%{base_name}
 Name:		%{base_name}-installer
 %endif
 Version:	20050412
-Release:	2%{?with_license_agreement:wla}
+%define		_rel	3
+Release:	%{_rel}%{?with_license_agreement:wla}
 Group:		Libraries
 License:	Free for non-commercial use
 %if %{with license_agreement}
@@ -102,7 +99,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*_linuxELFx86c6.xa
 %endif
 
 %if %{without license_agreement}
-%pre
+%post
 %{_bindir}/%{base_name}.install
 %endif
 
