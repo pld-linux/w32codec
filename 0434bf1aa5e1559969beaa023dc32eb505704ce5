@@ -1,0 +1,2 @@
+- can't call scripts belonging to package in %pre; rel 3 (thx ankry
+  for pointing it out)
