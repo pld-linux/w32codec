@@ -5,19 +5,19 @@
 %bcond_with	license_agreement	# generates package
 %define		source_url      http://www2.mplayerhq.hu/MPlayer/releases/codecs/
 #
+%define		base_name	w32codec
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
-%define		base_name	w32codec
 %if %{with license_agreement}
 Name:		%{base_name}
 %else
 Name:		%{base_name}-installer
 %endif
-Version:	20050412
 %define		_rel	3
+Version:	20050412
 Release:	%{_rel}%{?with_license_agreement:wla}
-Group:		Libraries
 License:	Free for non-commercial use
+Group:		Libraries
 %if %{with license_agreement}
 Source0:	%{source_url}all-%{version}.tar.bz2
 #Source1:	%{source_url}qt6dlls.tar.bz2
@@ -32,10 +32,8 @@ Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
 %else
 Source0:	license-installer.sh
-Requires:	cpio
 Requires:	rpm-build-tools
 Requires:	unzip
-Requires:	wget
 Provides:	%{base_name}
 %endif
 AutoReqProv:	no
@@ -46,25 +44,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
 files.
-%if %{without license_agreement}
-License issues made us not to include inherent files into this package
-by default. If you want to create full working package please build it
-with the following command:
-
-%{base_name}.install --with license_agreement %{_datadir}/%{base_name}/%{base_name}.spec
-%endif
 
 %description -l pl
 Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
 wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
 kompresowanych plików z filmami.
-%if %{without license_agreement}
-Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
-plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
-pomoc± polecenia:
-
-%{base_name}.install --with license_agreement %{_datadir}/%{base_name}/%{base_name}.spec
-%endif
 
 %prep
 %if %{with license_agreement}
