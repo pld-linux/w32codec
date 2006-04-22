@@ -13,7 +13,7 @@ Name:		%{base_name}
 %else
 Name:		%{base_name}-installer
 %endif
-%define		_rel	3
+%define		_rel	4
 Version:	20050412
 Release:	%{_rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
