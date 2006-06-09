@@ -3,7 +3,7 @@
 #
 # Conditional build:
 %bcond_with	license_agreement	# generates package
-%define		source_url      http://www2.mplayerhq.hu/MPlayer/releases/codecs/
+%define		source_url      http://www4.mplayerhq.hu/MPlayer/releases/codecs/
 #
 %define		base_name	w32codec
 Summary:	Binary compression/decompression libraries used by movie players
@@ -14,7 +14,7 @@ Name:		%{base_name}
 Name:		%{base_name}-installer
 %endif
 %define		_rel	5
-Version:	20050412
+Version:	20060501
 Release:	%{_rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
 Group:		Libraries
