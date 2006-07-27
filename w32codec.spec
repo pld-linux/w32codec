@@ -14,7 +14,7 @@ Name:		%{base_name}
 Name:		%{base_name}-installer
 %endif
 %define		_rel	1
-Version:	20060501
+Version:	20060611
 Release:	%{_rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
 Group:		Libraries
