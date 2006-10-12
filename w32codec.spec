@@ -25,7 +25,7 @@ Source0:	%{source_url}all-%{version}.tar.bz2
 #Source3:	%{source_url}rp8codecs.tar.bz2
 #Source4:	%{source_url}rp9codecs.tar.bz2
 #Source5:	%{source_url}xanimdlls.tar.bz2
-Source6:	http://www.ezgoal.com/dll_files/tsd32.zip
+#Source6:	http://www.ezgoal.com/dll_files/tsd32.zip
 BuildRequires:	unzip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
@@ -58,8 +58,8 @@ kompresowanych plików z filmami.
 #bzcat %{SOURCE3} | tar xf -
 #bzcat %{SOURCE4} | tar xf -
 #bzcat %{SOURCE5} | tar xf -
-unzip %{SOURCE6}
-mv TSD32.DLL tsd32.dll
+#unzip %{SOURCE6}
+#mv TSD32.DLL tsd32.dll
 #for f in */*; do mv $f .; done
 %endif
 
