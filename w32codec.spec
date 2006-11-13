@@ -66,7 +66,7 @@ kompresowanych plików z filmami.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%if %{without license_agreement}
+%if !%{with license_agreement}
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{base_name}}
 
 sed -e '
@@ -85,7 +85,7 @@ install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*_linuxELFx86c6.xa
 %endif
 
-%if %{without license_agreement}
+%if !%{with license_agreement}
 %post
 %{_bindir}/%{base_name}.install
 %endif
