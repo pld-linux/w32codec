@@ -65,8 +65,8 @@ install %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
 %else
 install -d $RPM_BUILD_ROOT%{_libdir}/codecs
 install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
-rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*_linuxELFx86c6.xa
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.so*
+rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.xa
 %endif
 
 %if %{without license_agreement}
