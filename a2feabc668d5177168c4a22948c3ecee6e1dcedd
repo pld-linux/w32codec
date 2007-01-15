@@ -1,0 +1,3 @@
+- cleanup
+- only windows codecs here (use linuxcodec.spec for others)
+- rel 2
