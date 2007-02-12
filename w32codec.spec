@@ -4,7 +4,7 @@
 #
 %define		base_name	w32codec
 Summary:	Binary compression/decompression libraries used by movie players
-Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
+Summary(pl.UTF-8):   Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmÃ³w
 %if %{with license_agreement}
 Name:		%{base_name}
 %else
@@ -36,10 +36,10 @@ Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
 files.
 
-%description -l pl
-Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
-wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
-kompresowanych plików z filmami.
+%description -l pl.UTF-8
+Biblioteki niezbÄ™dne do kompresji/dekompresji filmÃ³w. SÄ… one
+wykorzystywane przez odtwarzacze, ale mogÄ… byÄ‡ uÅ¼yte do tworzenia
+kompresowanych plikÃ³w z filmami.
 
 %prep
 %if %{with license_agreement}
