@@ -3,7 +3,7 @@
 %bcond_with	license_agreement	# generates package
 #
 Summary:	Binary compression/decompression libraries used by movie players
-Summary(pl):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
+Summary(pl.UTF-8):   Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmÃ³w
 Name:		w32codec
 Version:	20041107
 Release:	1%{?with_license_agreement:wla}
@@ -45,14 +45,14 @@ with the following command:
 w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm
 %endif
 
-%description -l pl
-Biblioteki niezbêdne do kompresji/dekompresji filmów. S± one
-wykorzystywane przez odtwarzacze, ale mog± byæ u¿yte do tworzenia
-kompresowanych plików z filmami.
+%description -l pl.UTF-8
+Biblioteki niezbÄ™dne do kompresji/dekompresji filmÃ³w. SÄ… one
+wykorzystywane przez odtwarzacze, ale mogÄ… byÄ‡ uÅ¼yte do tworzenia
+kompresowanych plikÃ³w z filmami.
 %if ! %{with license_agreement}
-Kwestie licencji zmusi³y nas do niedo³±czania do tego pakietu istotnych
-plików. Je¶li chcesz stworzyæ w pe³ni funkcjonalny pakiet, zbuduj go za
-pomoc± polecenia:
+Kwestie licencji zmusiÅ‚y nas do niedoÅ‚Ä…czania do tego pakietu istotnych
+plikÃ³w. JeÅ›li chcesz stworzyÄ‡ w peÅ‚ni funkcjonalny pakiet, zbuduj go za
+pomocÄ… polecenia:
 
 w32codec.install --with license_agreement %{w32codecDIR}/%{name}-%{version}-%{release}.src.rpm
 %endif
