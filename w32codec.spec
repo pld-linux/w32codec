@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_with	license_agreement	# generates package
-%define		source_url	http://www.mplayerhq.hu/MPlayer/releases/codecs/
+%define		source_url	http://www.mplayerhq.hu/MPlayer/releases/codecs
 #
 %define		base_name	w32codec
 Summary:	Binary compression/decompression libraries used by movie players
@@ -17,7 +17,7 @@ Release:	%{_rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
 Group:		Libraries
 %if %{with license_agreement}
-Source0:	%{source_url}all-%{version}.tar.bz2
+Source0:	%{source_url}/all-%{version}.tar.bz2
 BuildRequires:	unzip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
