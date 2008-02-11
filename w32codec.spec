@@ -11,8 +11,8 @@ Name:		%{base_name}
 %else
 Name:		%{base_name}-installer
 %endif
-%define		_rel	2
-Version:	20061022
+%define		_rel	1
+Version:	20071007
 Release:	%{_rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
 Group:		Libraries
