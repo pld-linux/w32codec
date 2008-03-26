@@ -68,6 +68,7 @@ install %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
 %else
 install -d $RPM_BUILD_ROOT%{_libdir}/codecs
 install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
+# these are in in linuxcodec.spec
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.so*
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.xa
 %endif
