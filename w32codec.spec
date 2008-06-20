@@ -20,14 +20,12 @@ License:	Free for non-commercial use
 Group:		Libraries
 %if %{with license_agreement}
 Source0:	%{source_url}/all-%{version}.tar.bz2
-BuildRequires:	unzip
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
 %else
 Source0:	license-installer.sh
 Requires:	rpm-build-tools
-Requires:	unzip
 Provides:	%{base_name}
 %endif
 AutoReqProv:	no
