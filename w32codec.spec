@@ -4,8 +4,9 @@
 # Conditional build:
 %bcond_with	license_agreement	# generates package
 %define		source_url	http://www.mplayerhq.hu/MPlayer/releases/codecs
-#
+
 %define		base_name	w32codec
+%define		rel	3
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl.UTF-8):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %if %{with license_agreement}
@@ -13,9 +14,8 @@ Name:		%{base_name}
 %else
 Name:		%{base_name}-installer
 %endif
-%define		_rel	2
 Version:	20071007
-Release:	%{_rel}%{?with_license_agreement:wla}
+Release:	%{rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
 Group:		Libraries
 %if %{with license_agreement}
@@ -60,12 +60,13 @@ sed -e '
 	s-@RELEASE@-%{release}-g
 	s,@SPECFILE@,%{_datadir}/%{base_name}/%{base_name}.spec,g
 ' %{SOURCE0} > $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
+chmod +x $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
 
 install %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
 
 %else
 install -d $RPM_BUILD_ROOT%{_libdir}/codecs
-install *.* $RPM_BUILD_ROOT%{_libdir}/codecs
+cp -a *.* $RPM_BUILD_ROOT%{_libdir}/codecs
 # these are in in linuxcodec.spec
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.so*
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.xa
