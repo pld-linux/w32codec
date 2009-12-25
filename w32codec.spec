@@ -6,7 +6,7 @@
 %define		source_url	http://www.mplayerhq.hu/MPlayer/releases/codecs
 
 %define		base_name	w32codec
-%define		rel	4
+%define		rel	5
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl.UTF-8):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %if %{with license_agreement}
@@ -25,7 +25,7 @@ Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
 %else
 Source0:	license-installer.sh
-Requires:	rpm-build-tools
+Requires:	rpm-build-tools >= 4.4.35
 Provides:	%{base_name}
 %endif
 AutoReqProv:	no
