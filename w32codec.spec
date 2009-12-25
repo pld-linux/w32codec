@@ -6,7 +6,7 @@
 %define		source_url	http://www.mplayerhq.hu/MPlayer/releases/codecs
 
 %define		base_name	w32codec
-%define		rel	3
+%define		rel	4
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl.UTF-8):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %if %{with license_agreement}
@@ -59,6 +59,7 @@ sed -e '
 	s-@VERSION@-%{version}-g
 	s-@RELEASE@-%{release}-g
 	s,@SPECFILE@,%{_datadir}/%{base_name}/%{base_name}.spec,g
+	s,@DATADIR@,%{_datadir}/%{base_name},g
 ' %{SOURCE0} > $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
 chmod +x $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
 
