@@ -25,7 +25,7 @@ Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
 %else
 Source0:	http://svn.pld-linux.org/svn/license-installer/license-installer.sh
-# Source1-md5:	4fb1600353dd57fe088e0b12fb0ecac2
+# Source0-md5:	4fb1600353dd57fe088e0b12fb0ecac2
 Requires:	rpm-build-tools >= 4.4.35
 Provides:	%{base_name}
 %endif
