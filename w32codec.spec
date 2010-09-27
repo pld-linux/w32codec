@@ -6,7 +6,7 @@
 %define		source_url	http://www.mplayerhq.hu/MPlayer/releases/codecs
 
 %define		base_name	w32codec
-%define		rel	6
+%define		rel	7
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl.UTF-8):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %if %{with license_agreement}
@@ -20,12 +20,14 @@ License:	Free for non-commercial use
 Group:		Libraries
 %if %{with license_agreement}
 Source0:	%{source_url}/all-%{version}.tar.bz2
+# NoSource0-md5:	0407e8ad132e37ccd3f932448ca201c5
+NoSource:	0
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
 Obsoletes:	w32codec-qt
 %else
-Source0:	http://svn.pld-linux.org/svn/license-installer/license-installer.sh
-# Source0-md5:	329c25f457fea66ec502b7ef70cb9ede
+Source1:	http://svn.pld-linux.org/svn/license-installer/license-installer.sh
+# Source1-md5:	329c25f457fea66ec502b7ef70cb9ede
 Requires:	rpm-build-tools >= 4.4.37
 Requires:	rpmbuild(macros) >= 1.544
 Provides:	%{base_name}
@@ -62,10 +64,10 @@ sed -e '
 	s-@RELEASE@-%{release}-g
 	s,@SPECFILE@,%{_datadir}/%{base_name}/%{base_name}.spec,g
 	s,@DATADIR@,%{_datadir}/%{base_name},g
-' %{SOURCE0} > $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
+' %{SOURCE1} > $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
 chmod +x $RPM_BUILD_ROOT%{_bindir}/%{base_name}.install
 
-install %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
+cp -a %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
 
 %else
 install -d $RPM_BUILD_ROOT%{_libdir}/codecs
