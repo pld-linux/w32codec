@@ -36,6 +36,9 @@ ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 AutoReqProv:	no
 
+# avoid empty debuginfo package
+%define		_enable_debug_packages	0
+
 %description
 Libraries required to compress/decompress content of movie files. They
 are used by movie players, but can be used to create compressed movie
