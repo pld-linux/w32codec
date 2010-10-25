@@ -75,7 +75,8 @@ cp -a %{_specdir}/%{base_name}.spec $RPM_BUILD_ROOT%{_datadir}/%{base_name}
 %else
 install -d $RPM_BUILD_ROOT%{_libdir}/codecs
 cp -a *.* $RPM_BUILD_ROOT%{_libdir}/codecs
-# these are in in linuxcodec.spec
+# essential of these are in in linuxcodec.spec
+# (i.e. all except {atrc,cook,ddnt,dnet,drv[234]}.so.6.0 from rp9codecs-20050115 and vid_{cvid,cyuv,h26[13],iv{32,41,50}}.xa from xanimdlls-20040626
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.so*
 rm -f $RPM_BUILD_ROOT%{_libdir}/codecs/*.xa
 %endif
