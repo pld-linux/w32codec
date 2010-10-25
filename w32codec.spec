@@ -6,7 +6,7 @@
 %define		source_url	http://www.mplayerhq.hu/MPlayer/releases/codecs
 
 %define		base_name	w32codec
-%define		rel	7
+%define		rel	1
 Summary:	Binary compression/decompression libraries used by movie players
 Summary(pl.UTF-8):	Binarne biblioteki do kompresji/dekompresji dla odtwarzaczy filmów
 %if %{with license_agreement}
@@ -14,13 +14,13 @@ Name:		%{base_name}
 %else
 Name:		%{base_name}-installer
 %endif
-Version:	20071007
+Version:	20100303
 Release:	%{rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
 Group:		Libraries
 %if %{with license_agreement}
 Source0:	%{source_url}/all-%{version}.tar.bz2
-# NoSource0-md5:	0407e8ad132e37ccd3f932448ca201c5
+# NoSource0-md5:	4a7eb1a706f4ed9950bf6dd7f063ef68
 NoSource:	0
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
