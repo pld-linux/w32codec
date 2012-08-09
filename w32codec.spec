@@ -14,13 +14,13 @@ Name:		%{base_name}
 %else
 Name:		%{base_name}-installer
 %endif
-Version:	20100303
+Version:	20110131
 Release:	%{rel}%{?with_license_agreement:wla}
 License:	Free for non-commercial use
 Group:		Libraries
 %if %{with license_agreement}
 Source0:	%{source_url}/all-%{version}.tar.bz2
-# NoSource0-md5:	4a7eb1a706f4ed9950bf6dd7f063ef68
+# NoSource0-md5:	303cf3cbf15e7084d1cfed3f0e3ef8e4
 NoSource:	0
 Provides:	avi-codecs
 Obsoletes:	avi-codecs
